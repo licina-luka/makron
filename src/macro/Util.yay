@@ -1,0 +1,22 @@
+
+$(macro :unsafe){
+    $
+    $(not(token(T_VARIABLE)))
+    $(not(token('{')))
+} >> {
+    $this
+}
+
+$(macro) {
+
+  unless ($(layer() as expr)) {
+    $(layer() as body)
+  }
+
+} >> {
+
+  if (! ($(expr))) {
+    $(body)
+  }
+
+}
